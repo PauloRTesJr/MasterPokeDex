@@ -12,38 +12,42 @@ var inject = require('gulp-inject');
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('js/*.js')
+    return gulp.src('app/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass
 gulp.task('sass', function() {
-    return gulp.src('scss/*.scss')
+    return gulp.src('app/**/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('dist/css'));
 });
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
+    return gulp.src('app/**/*.js')
         .pipe(concat('all.js'))
-        .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest('dist'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
 });
 
+// Inject bower components into index.html
 gulp.task('inject', function() {
     gulp.src('index.html')
-        .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower'}))
-        .pipe(gulp.dest('./dist'));
+        .pipe(inject(gulp.src(bowerFiles(), {read: false}), {
+                name: 'bower',
+                addRootSlash: false
+            }))
+        .pipe(gulp.dest('.'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['lint', 'scripts']);
-    gulp.watch('scss/*.scss', ['sass']);
+    gulp.watch('app/**/*.js', ['lint', 'scripts']);
+    gulp.watch('app/**/*.scss', ['sass']);
 });
 
 // Default Task
