@@ -1,11 +1,13 @@
 <div ng-controller="TopBarCtrl" class="main-shell">
+
+    <!-- TOOLBAR -->
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings">
-          <!-- <md-icon md-svg-icon="img/icons/menu.svg"></md-icon> -->
+        <md-button class="md-icon-button" ng-click="openSidebar()" aria-label="Settings">
+            <i class="fa fa-bars" aria-hidden="true"></i>
         </md-button>
         <h2>
-          <span>Toolbar with Icon Buttons</span>
+          <span>Find everything!</span>
         </h2>
         <span flex></span>
         <md-button class="md-icon-button" aria-label="Favorite">
@@ -16,4 +18,14 @@
         </md-button>
       </div>
     </md-toolbar>
+
+    <!-- SIDEBAR -->
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools" layout-align="center center">Menu</h1>
+      </md-toolbar>
+      <md-content layout-padding>
+        
+      </md-content>
+    </md-sidenav>
 </div>

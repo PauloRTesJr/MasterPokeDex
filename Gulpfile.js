@@ -10,12 +10,6 @@ var rename = require('gulp-rename');
 var bowerFiles = require('main-bower-files');
 var inject = require('gulp-inject');
 
-// Lint Task
-gulp.task('lint', function() {
-    return gulp.src('app/**/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
-});
 
 // Compile Our Sass
 gulp.task('sass', function() {
@@ -46,9 +40,9 @@ gulp.task('inject', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('app/**/*.js', ['lint', 'scripts']);
+    gulp.watch('app/**/*.js', ['scripts']);
     gulp.watch('app/**/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'inject', 'watch']);
+gulp.task('default', ['sass', 'scripts', 'inject', 'watch']);
