@@ -14,7 +14,7 @@ var inject = require('gulp-inject');
 // Compile Our Sass
 gulp.task('sass', function() {
     return gulp.src('app/**/*.scss')
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('dist/css'));
 });
 
@@ -38,6 +38,14 @@ gulp.task('inject', function() {
         .pipe(gulp.dest('.'));
 });
 
+// Concatenate CSS
+gulp.task('concat-css', function() {
+    return gulp.src('dist/**/*.css')
+        .pipe(concat('style.css'))
+      .pipe(gulp.dest('.'))
+});
+
+
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('app/**/*.js', ['scripts']);
@@ -45,4 +53,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['sass', 'scripts', 'inject', 'watch']);
+gulp.task('default', ['sass', 'scripts', 'inject', 'concat-css']);

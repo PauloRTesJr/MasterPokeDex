@@ -1,0 +1,30 @@
+@import 'app/app.scss';
+
+div.logo-topbar{
+	height: 80px;
+	background-image: url("assets/img/pokemon_logo.png");
+	width: 300px;
+	background-size:     contain;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+}
+
+md-toolbar{
+	height: 15vh;
+}
+
+.md-toolbar-tools {
+	height: 100%;
+	max-height: 100%;
+}
+
+.center-content{
+	min-height: 100%;
+	min-width: 95%;
+}
