@@ -12,10 +12,10 @@ apiApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $m
             templateUrl: 'app/main/main.html',
             controller: 'MainCtrl'
         })
-        .state('login', {
-            url: '/login',
-            templateUrl: 'app/login/login.html',
-            controller: 'LoginCtrl'
+        .state('pokedex', {
+            url: '/pokedex',
+            templateUrl: 'app/pokedex/pokedex.html',
+            controller: 'PokedexCtrl'
         });
 
     var customPrimary = {
