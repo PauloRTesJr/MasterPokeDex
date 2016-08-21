@@ -1,8 +1,12 @@
 @import 'app/app.scss';
 
+body{
+    background-color: $purple;
+}
+
 .main-columns{
 	margin: 3px;
-	height: 85vh;
+	height: 75vh;
 }
 
 @import url('http://fonts.googleapis.com/css?family=Raleway:400,200');
@@ -12,16 +16,16 @@
     box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
   	-webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
   	-moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
-    height: 85vh;
+    height: 75vh;
     margin: auto;
     overflow: hidden;
 }
 .card:hover {
-    height: 85vh;
+    height: 75vh;
 }
 .card:hover .cta-container {
     display: inline;
-    margin-top: 400px;
+    margin-top: 62vh;
 }
 .card:hover .card_circle {
     background-size: cover;
@@ -31,15 +35,15 @@
 .card:hover h2 {
     background: $purple;
     color: #fff;
-    margin-top: 100px;
+    margin-top: 20vh;
     padding: 5px;
 }
 .card:hover h2 small { color: #fff }
-.card:hover p { margin-top: 300px }
+.card:hover p { margin-top: 52vh; }
 .card_circle {
     height: 65vh;
     margin-left: 0px;
-    margin-top: -220px;
+    margin-top: -35vh;
 }
 .pokemon_api_card{
 	background: url("assets/img/pokemon_api.jpg") no-repeat center bottom;	
@@ -62,13 +66,12 @@
 h2.transition {
     color: $purple;
     font-family: 'Raleway', sans-serif;
-    font-size: 27px;
+    font-size: 5vh;
     font-weight: 800;
     margin-top: 35vh;
     margin-left: 5px;
     position: absolute;
     text-align: center;
-    z-index: 9999;
 }
 p {
     color: rgba(0,0,0,.6);
@@ -79,7 +82,6 @@ p {
     margin-top: 41vh;
     margin-left: 5px;
     position: absolute;
-    z-index: 9999;
 }
 .cta-container {
     display: none;
@@ -87,7 +89,6 @@ p {
     position: absolute;
     text-align: center;
     width: 30%;
-    z-index: 9999;
 }
 .cta {
     -moz-border-radius: 2px;
@@ -102,7 +103,7 @@ p {
     color: $purple;
     display: inline-block;
     font-family: 'Raleway', sans-serif;
-    font-size: 17px;
+    font-size: 4vh;
     font-weight: 400;
     height: 36px;
     letter-spacing: 0.5px;
@@ -119,4 +120,17 @@ p {
     color: #fff;
     -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 960px) {
+    .cta-container {
+        display: block;
+        width: 100%;
+        margin-top: 50vh;
+    }
+
+    .main-columns p{
+        width: 100%;
+        margin-top: 42vh;
+    }
 }
