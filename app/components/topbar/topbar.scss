@@ -28,3 +28,11 @@ md-toolbar{
 	min-height: 100%;
 	min-width: 95%;
 }
+
+md-sidenav button:hover{
+	background-color: rgba(229, 229, 229, 0.71)!important;
+}
+
+md-sidenav hr{
+	padding: 0px!important;
+}

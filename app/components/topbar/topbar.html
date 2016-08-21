@@ -5,8 +5,11 @@
             <md-button class="md-icon-button" ng-click="openSidebar()" aria-label="Settings">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </md-button>
-            <div class="center-content" layout="row" layout-align="center center"><div class="logo-topbar"></div></div>
-            
+            <div class="center-content" layout="row" layout-align="center center">
+                <a href="" go-click="main">
+                    <div class="logo-topbar"></div>
+                </a>
+            </div>
         </div>
     </md-toolbar>
     <!-- SIDEBAR -->
@@ -14,22 +17,25 @@
         <md-toolbar class="md-theme-indigo">
             <h1 class="md-toolbar-tools" layout-align="center center">Menu</h1>
         </md-toolbar>
-        <md-content layout-padding>
+        <md-content id="sidebar-menu" layout-padding>
             <md-menu-item>
                 <md-button ng-click="">
-                    Pokédex            
+                    Pokédex
                 </md-button>
             </md-menu-item>
+            <hr />
             <md-menu-item>
                 <md-button ng-click="">
-                    Pokémon GO            
+                    Pokémon GO
                 </md-button>
             </md-menu-item>
+            <hr />
             <md-menu-item>
                 <md-button ng-click="">
-                    PokeXGames            
+                    PokeXGames
                 </md-button>
             </md-menu-item>
+            <hr />
         </md-content>
     </md-sidenav>
 </div>

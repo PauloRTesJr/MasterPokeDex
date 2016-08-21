@@ -1,13 +1,13 @@
-var apiApp = angular.module('apiApp', ['ngMaterial','ui.router']);
+var apiApp = angular.module('apiApp', ['ngMaterial','ui.router', 'ngResource']);
 
 apiApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
-    $locationProvider.html5Mode(true);
+    
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
 
         // HOME STATES AND NESTED VIEWS ========================================
-        .state('home', {
+        .state('main', {
             url: '/',
             templateUrl: 'app/main/main.html',
             controller: 'MainCtrl'
@@ -17,6 +17,8 @@ apiApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $m
             templateUrl: 'app/pokedex/pokedex.html',
             controller: 'PokedexCtrl'
         });
+
+    //$locationProvider.html5Mode(true);
 
     var customPrimary = {
         '50': '#81749d',
