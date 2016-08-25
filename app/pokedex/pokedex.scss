@@ -1,0 +1,18 @@
+@import 'app/app.scss';
+
+.pokemon-list{
+	min-height: $content-height;
+	background-color: $grey;
+	md-list{
+		background-color: $clean;
+		margin:auto;
+		button:hover{
+			background-color: rgba($green, 0.71)!important;
+		}
+		md-list-item{
+			display: inline-flex!important;
+			min-width: 50%;
+		}
+
+	}
+}

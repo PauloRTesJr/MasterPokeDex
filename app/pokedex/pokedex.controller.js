@@ -2,9 +2,12 @@
 
 angular.module('apiApp')
     .controller('PokedexCtrl', function ($scope, Pokemons) {
-    	var pokemons;
-    	Pokemons.query(function(data){
-    		pokemons = data;
-    	});
-    	console.log(pokemons);
+    	$scope.pokemons = [];
+    	$scope.next = '';
+
+    	$scope.query = Pokemons.query(function(data) {
+		     $scope.pokemons = data.results;
+		     $scope.next = data.next;
+		});
+    	console.log($scope.pokemons);
     });
