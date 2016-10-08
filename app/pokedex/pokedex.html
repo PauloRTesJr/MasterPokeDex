@@ -1,12 +1,48 @@
 <md-content class="pokemon-list">
     <md-list flex='50'>
-    	<div id="spinner" layout="row" layout-sm="column" layout-align="space-around" ng-hide="query.$resolved">
-      		<md-progress-circular md-diameter="120" md-mode="indeterminate"></md-progress-circular>
-    	</div>
-        <md-list-item layout="row" flex='30' class="md-3-line pokemon-item" ng-repeat="item in pokemons" ng-click="null">
-            <div class="md-list-item-text" layout="column" layout-align="center center">
-                <h3>{{ item.name }}</h3>
+        <div id="spinner" layout="row" layout-sm="column" layout-align="space-around" ng-hide="query.$resolved">
+            <md-progress-circular md-diameter="120" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <md-list-item layout="row" flex='30' class="md-3-line pokemon-item" ng-repeat="item in pokemons" ng-click="showPokemon($event, item)">
+                <img src="/assets/icons-pokemon/pokeball.svg" alt="icon" class="md-avatar" />
+                <div class="md-list-item-text">
+                    <h3>{{ item.name }}</h3>
+                </div>
             </div>
         </md-list-item>
+        <div layout="row" layout-align="space-between center">
+            <div ng-show="previous"><md-button ng-click="refreshPokemon('previous')">Previous</md-button></div>
+            <div ng-show="next"><md-button ng-click="refreshPokemon('next')">Next</md-button></div>
+        </div>
     </md-list>
 </md-content>
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="myStaticDialog">
+        <md-dialog arial-label="" flex="80">
+            <md-content class="poke-modal">
+                <div id="spinner" layout="row" layout-sm="column" layout-align="space-around" ng-show="querying">
+                    <md-progress-circular md-diameter="60" md-mode="indeterminate"></md-progress-circular>
+                </div>
+                <div ng-hide="querying">
+                    <md-toolbar layout="row" layout-align="center center">
+                        <div class="md-toolbar-tools">
+                            <div class="center-content modal-title" layout="row" layout-align="center center">
+                                {{ pokemon.name }}
+                            </div>
+                        </div>
+                    </md-toolbar>
+                    <md-content>
+                        <div layout="column" layout-align="center center">
+                            <div flex>
+                                <span class="info-label">Height:</span> {{ pokemon.height/10 }}m
+                            </div>
+                            <div flex>
+                                <span class="info-label">Weight:</span> {{ pokemon.weight/10 }}kg
+                            </div>
+                        </div>
+                    </md-content>
+                </div>
+            </md-content>
+        </md-dialog>
+    </div>
+</div>

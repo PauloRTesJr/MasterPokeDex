@@ -16,3 +16,14 @@
 
 	}
 }
+
+.poke-modal{
+	md-toolbar{
+		height: 9vh;
+	}
+	.modal-title{
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 5vh;
+	}
+}
