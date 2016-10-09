@@ -15,6 +15,7 @@
   "dependencies": {
     "angular-material": "master",
     "angular-ui-router": "^0.2.18",
-    "angular-resource": "^1.5.8"
+    "angular-resource": "^1.5.8",
+    "hover": "Hover#^2.0.2"
   }
 }

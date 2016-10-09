@@ -2,19 +2,25 @@
 
 .pokemon-list{
 	min-height: $content-height;
-	background-color: $grey;
-	md-list{
-		background-color: $clean;
+	padding-top: 1vh;
+	//background-color: $clean;
+	
+	background: url('/assets/img/api-background.jpg') no-repeat center center fixed;
+	background-size: 100%;
+	md-grid-list{
 		margin:auto;
-		button:hover{
-			background-color: rgba($green, 0.71)!important;
+		.grid-tile{
+			background-color: rgba($purple, 0.9);
+			:hover{
+				//background-color: black;
+			}
+			h3{
+				text-transform: uppercase;
+				font-weight: bold;
+			}
 		}
-		md-list-item{
-			display: inline-flex!important;
-			min-width: 50%;
-		}
-
 	}
+	
 }
 
 .poke-modal{
