@@ -1,118 +1,176 @@
 @import 'app/app.scss';
-
-.bg-green, .bug{
-	background-color: $green;
-	color: white;
-}
-.bg-red, .fire, .dragon, .fighting{
-	background-color: #CE2029;
-	color: white;
-}
-.bg-blue, .water{
-	background-color: #00B2EE;
-	color: white;
-}
-.bg-purple, .poison{
-	background-color: $purple;
-	color: white;
-}
-.bg-dark-green, .grass{
-	background-color: #008000;
-	color: white;
-}
-.bg-pink, .fairy, .psychic{
-	background-color: #FFC0CB;
-	color: white;
-}
-.bg-grey, .rock{
-	background-color: #663300;
-	color: white;
-}
-.steel{
-	background-color: #808080;
-	color: white;
-}
-.normal{
-	background-color: #bfbfbf;
-	color: white;
-}
-.flying, .ice{
-	background-color: #bfbfbf;
-	color: white;
-}
-.dark{
-	background-color: #333333;
-	color: white;
-}
-.ghost{
-	background-color: #000033;
-	color: white;
-}
-.electric{
-	background-color: #ffff00;
-	color: white;
-}
-.ground{
-	background-color: #999900;
-	color: white;
+.bg-green,
+.bug {
+    background-color: $green;
+    color: white;
 }
 
-.pokemon-list{
-	min-height: $content-height;
-	padding-top: 1vh;
-	
-	background: url('/assets/img/api-background.jpg') no-repeat center center fixed;
-	background-size: 100%;
-	md-grid-list{
-		margin:auto;
-		.grid-tile{
-			background-color: rgba($purple, 0.9);
-			h3{
-				text-transform: uppercase;
-				font-weight: bold;
-			}
-		}
-	}
-	.nav-row{
-		margin: auto;
-	}
-	
+.bg-red,
+.fire,
+.dragon,
+.fighting {
+    background-color: #CE2029;
+    color: white;
 }
 
-.poke-modal{
-	md-toolbar{
-		height: 9vh;
-	}
-	.modal-title{
-		text-transform: uppercase;
-		font-weight: bold;
-		font-size: 5vh;
-	}
-	.modal-content{
-		.poke-sprites{
-			background-color: $green;
-			margin: 10px;
-			padding: 20px;
-			width: 70vh;
-			.image-container{
-				text-align: center;
-			}
-			img{
-				border: 1px solid;
-    			border-radius: 50px;
-    			background: white;
-			}
-		}
-		.infos-modal{
-			margin: 10px;
-			padding: 20px;
-			width: 70vh;
-			text-align: center;
-			.info-label{
-				padding: 15px;
-			    font-size: 2vh;
-			    margin-right: 2vh;
-			}
-		}
-	}
+.bg-blue,
+.water {
+    background-color: #00B2EE;
+    color: white;
+}
+
+.bg-purple,
+.poison {
+    background-color: $purple;
+    color: white;
+}
+
+.bg-dark-green,
+.grass {
+    background-color: #008000;
+    color: white;
+}
+
+.bg-pink,
+.fairy,
+.psychic {
+    background-color: #FFC0CB;
+    color: white;
+}
+
+.bg-grey,
+.rock {
+    background-color: #663300;
+    color: white;
+}
+
+.steel {
+    background-color: #808080;
+    color: white;
+}
+
+.normal {
+    background-color: #bfbfbf;
+    color: white;
+}
+
+.flying,
+.ice {
+    background-color: #bfbfbf;
+    color: white;
+}
+
+.dark {
+    background-color: #333333;
+    color: white;
+}
+
+.ghost {
+    background-color: #000033;
+    color: white;
+}
+
+.electric {
+    background-color: #ffff00;
+    color: black;
+}
+
+.ground {
+    background-color: #999900;
+    color: white;
+}
+
+.pokemon-list {
+    min-height: $content-height;
+    padding-top: 1vh;
+    background: url('/assets/img/api-background.jpg') no-repeat center center fixed;
+    background-size: 100%;
+    md-grid-list {
+        margin: auto;
+        .grid-tile {
+            background-color: rgba($purple, 0.9);
+            h3 {
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+    }
+    .nav-row {
+        margin: auto;
+        .md-button{
+        	background-color: $green;
+        	border: 2px solid $purple;
+        	color: white;
+        }
+    }
+}
+
+.poke-modal {
+    md-toolbar {
+        height: 9vh;
+    }
+    .modal-title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 5vh;
+    }
+    .modal-content {
+        .poke-sprites {
+            margin: 10px;
+            padding: 20px;
+            width: 70vh;
+            .image-container {
+                text-align: center;
+            }
+            img {
+                border: 1px solid;
+                border-radius: 50px;
+                background: white;
+            }
+        }
+        .infos-modal {
+            .poke-types {
+                position: relative;
+                max-width: 20vw;
+                margin: auto;
+                margin-right: auto!important;
+                .popover {
+                    width: auto;
+                    position: absolute;
+                    z-index: 100;
+                    color: #fff;
+                    background-color: rgba(100, 100, 100, 0.9);
+                    top: 6vh;
+                    left: 0;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+                    .list-title {
+                        display: block;
+                        margin: 5px;
+                    }
+                    ul {
+                        list-style: none;
+                        margin: 10px;
+                        padding: 0px;
+                        font-size: smaller;
+                        li {
+                            display: inline;
+                            padding: 4px;
+                            margin: 4px;
+                            border: 1px solid;
+                            line-height: 4vh;
+                        }
+                    }
+                }
+            }
+            margin: 10px;
+            padding: 20px;
+            width: 70vh;
+            text-align: center;
+            .info-label {
+                padding: 15px;
+                font-size: 2vh;
+                margin-right: 2vh;
+            }
+        }
+    }
 }

@@ -9,7 +9,7 @@
                 <h3 class="grid-name">{{item.name}}</h3></md-grid-tile-footer>
         </md-grid-tile>
     </md-grid-list>
-    <div layout="row" layout-align="space-between center" class="nav-row" flex="60">
+    <div layout="row" layout-align="center center" class="nav-row" flex="60">
         <div ng-show="previous">
             <md-button ng-click="refreshPokemon('previous')">Previous</md-button>
         </div>
@@ -34,15 +34,34 @@
                         </div>
                     </md-toolbar>
                     <md-content class="modal-content">
-                        
                         <div layout="column" layout-align="center center">
                             <div layout="row" layout-align="center center" class="infos-modal">
                                 <div flex ng-repeat="type in pokemon.types">
-                                    <span class="info-label" ng-class="type.type.name">{{type.type.name}}</span>
+                                    <div class="info-label poke-types" ng-class="type.type.name" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+                                        {{type.type.name}}
+                                        <div id="{{type.type.name}}" ng-show="hoverEdit" class="popover">
+                                            <ul>
+                                                <span class="list-title">Half damage from:</span>
+                                                <li 
+                                                    ng-repeat="elem in type.infos.damage_relations.half_damage_from" 
+                                                    ng-class="elem.name">
+                                                    {{elem.name}}
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <span class="list-title">Double damage from:</span>
+                                                <li 
+                                                    ng-repeat="elem in type.infos.damage_relations.double_damage_from"
+                                                    ng-class="elem.name">
+                                                    {{elem.name}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <md-divider />
-                            <div layout="row" layout-align="space-around center" class="poke-sprites">
+                            <div layout="row" layout-align="space-around center" class="poke-sprites bg-blue">
                                 <div class="image-container" flex>
                                     <img ng-src="{{pokemon.sprites.front_default}}">
                                 </div>
