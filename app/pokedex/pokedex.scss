@@ -92,6 +92,10 @@
             h3 {
                 text-transform: uppercase;
                 font-weight: bold;
+                @media screen and (max-width: 425px){
+                	margin: 0 0 0 7px;
+            		font-size: 12px;
+                }
             }
         }
     }
@@ -119,8 +123,8 @@
     }
     .modal-content {
         .poke-sprites {
-            margin: 10px;
-            padding: 20px;
+            margin: 5px;
+            padding: 10px;
             width: 70vh;
             .image-container {
                 text-align: center;
@@ -130,32 +134,56 @@
                 border-radius: 50px;
                 background: white;
             }
+            @media screen and (max-width: 425px) {
+	            margin: 0px;
+	        }
+        }
+        .section-container{
+        	margin: 20px;
+		    border: 1px solid $purple;
+		    border-radius: 10px;
+        	.section-title{
+        		font-size: 20px;
+    			margin: 5px;	
+        	}
         }
         .infos-modal {
+        	margin: 5px;
+            padding: 5px;
+            width: 70vh;
+            min-height: 7vh;
+            text-align: center;
+            @media screen and (max-width: 425px) {
+            	div{
+            		font-size: 1.3vh;
+            	}
+                padding: 0px;
+                margin: 10px 0px;
+            }
             .poke-types {
-                position: relative;
                 max-width: 20vw;
                 margin: auto;
                 margin-right: auto!important;
                 .popover {
-                	overflow: hidden;
-                    width: auto;
+                	width: 100%;
                     position: absolute;
                     z-index: 100;
                     color: #fff;
                     background-color: rgba(100, 100, 100, 0.9);
-                    top: 6vh;
+                    top: 10vh;
                     left: 0;
                     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                     .list-title {
                         display: block;
                         margin: 5px;
+                        text-transform: none;
                     }
                     ul {
                         list-style: none;
                         margin: 10px;
                         padding: 0px;
                         font-size: smaller;
+                        display: inline-table;
                         @media screen and (max-width: 425px) {
                             margin: 0px;
                         }
@@ -173,17 +201,17 @@
                     }
                 }
             }
-            margin: 10px;
-            padding: 20px;
-            width: 70vh;
-            text-align: center;
+            
             .info-label {
-                padding: 15px;
+                padding: 5px;
+                border-radius: 3px;
                 font-size: 2vh;
                 margin-right: 2vh;
+                text-transform: uppercase;
                 @media screen and (max-width: 425px) {
-                    padding: 10px;
+                    padding: 5px;
                     margin-right: 1vh;
+                    font-size: 1.6vh;
                 }
             }
         }

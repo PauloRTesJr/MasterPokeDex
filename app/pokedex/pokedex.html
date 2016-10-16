@@ -18,6 +18,9 @@
         </div>
     </div>
 </md-content>
+
+
+<!-- Início modal -->
 <div style="visibility: hidden">
     <div class="md-dialog-container" id="myStaticDialog">
         <md-dialog arial-label="" flex="80">
@@ -35,27 +38,62 @@
                     </md-toolbar>
                     <md-content class="modal-content">
                         <div layout="column" layout-align="center center">
-                            <div layout="row" layout-align="center center" class="infos-modal">
-                                <div flex ng-repeat="type in pokemon.types | orderBy:'slot'">
-                                    <div class="info-label poke-types" ng-class="type.type.name" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
-                                        {{type.type.name}}
-                                        <div id="{{type.type.name}}" ng-show="hoverEdit" class="popover">
-                                            <ul>
-                                                <span class="list-title">Half damage from:</span>
-                                                <li 
-                                                    ng-repeat="elem in type.infos.damage_relations.half_damage_from" 
-                                                    ng-class="elem.name">
-                                                    {{elem.name}}
-                                                </li>
-                                            </ul>
-                                            <ul>
-                                                <span class="list-title">Double damage from:</span>
-                                                <li 
-                                                    ng-repeat="elem in type.infos.damage_relations.double_damage_from"
-                                                    ng-class="elem.name">
-                                                    {{elem.name}}
-                                                </li>
-                                            </ul>
+                            <div class="section-container">
+                                <h2 class="section-title">Type(s)</h2>
+                                <div layout="row" layout-align="center center" class="infos-modal">
+                                    <div flex ng-repeat="type in pokemon.types | orderBy:'slot'">
+                                        <div class="info-label poke-types" ng-class="type.type.name" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+                                            {{type.type.name}}
+                                            <div id="{{type.type.name}}" ng-show="hoverEdit" class="popover" ng-style="modalWidth">
+                                                <ul>
+                                                    <span class="list-title">Half damage from:</span>
+                                                    <li 
+                                                        ng-repeat="elem in type.infos.damage_relations.half_damage_from" 
+                                                        ng-class="elem.name">
+                                                        {{elem.name}}
+                                                    </li>
+                                                </ul>
+                                                <ul>
+                                                    <span class="list-title">Double damage from:</span>
+                                                    <li 
+                                                        ng-repeat="elem in type.infos.damage_relations.double_damage_from"
+                                                        ng-class="elem.name">
+                                                        {{elem.name}}
+                                                    </li>
+                                                </ul>
+                                                <ul>
+                                                    <span class="list-title">Half damage to:</span>
+                                                    <li 
+                                                        ng-repeat="elem in type.infos.damage_relations.half_damage_to"
+                                                        ng-class="elem.name">
+                                                        {{elem.name}}
+                                                    </li>
+                                                </ul>
+                                                <ul>
+                                                    <span class="list-title">Double damage to:</span>
+                                                    <li 
+                                                        ng-repeat="elem in type.infos.damage_relations.double_damage_to"
+                                                        ng-class="elem.name">
+                                                        {{elem.name}}
+                                                    </li>
+                                                </ul>
+                                                <ul>
+                                                    <span class="list-title">No damage from:</span>
+                                                    <li 
+                                                        ng-repeat="elem in type.infos.damage_relations.no_damage_from"
+                                                        ng-class="elem.name">
+                                                        {{elem.name}}
+                                                    </li>
+                                                </ul>
+                                                <ul>
+                                                    <span class="list-title">No damage to:</span>
+                                                    <li 
+                                                        ng-repeat="elem in type.infos.damage_relations.no_damage_to"
+                                                        ng-class="elem.name">
+                                                        {{elem.name}}
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -76,12 +114,23 @@
                                 </div>
                             </div>
                             <md-divider></md-divider>
-                            <div layout="row" layout-align="space-around center" class="infos-modal">
-                                <div flex>
-                                    <span class="info-label bg-green">Height</span> {{ pokemon.height/10 }}m
+                            <div class="section-container">
+                                <h2 class="section-title">Infos</h2>
+                                <div layout="row" layout-align="space-around center" class="infos-modal">
+                                    <div flex>
+                                        <span class="info-label bg-green">Height</span> {{ pokemon.height/10 }}m
+                                    </div>
+                                    <div flex>
+                                        <span class="info-label bg-green">Weight</span> {{ pokemon.weight/10 }}kg
+                                    </div>
                                 </div>
-                                <div flex>
-                                    <span class="info-label bg-green">Weight</span> {{ pokemon.weight/10 }}kg
+                            </div>
+                            <div class="section-container">
+                                <h2 class="section-title">Base Stats</h2>
+                                <div layout="row" layout-wrap class="infos-modal">
+                                    <div flex-gt-sm="30" flex-sm="50" ng-repeat="stat in pokemon.stats">
+                                        <span class="info-label bg-red">{{stat.stat.name}}</span> {{ stat.base_stat }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
