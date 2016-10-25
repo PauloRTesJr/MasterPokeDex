@@ -184,6 +184,7 @@
             	}
                 padding: 0px;
                 margin: 10px 0px;
+                max-width: 100%;
             }
             .poke-types {
                 max-width: 20vw;
@@ -230,7 +231,7 @@
             .info-label {
                 padding: 5px;
                 border-radius: 3px;
-                font-size: 2vh;
+                font-size: 16px;
                 margin-right: 2vh;
                 text-transform: uppercase;
                 @media screen and (max-width: 425px) {
@@ -239,6 +240,11 @@
                     font-size: 1.6vh;
                 }
             }
+        }
+        .types-content{
+        	@media screen and (max-width: 425px){
+        		display: block;
+        	}
         }
     }
 }
