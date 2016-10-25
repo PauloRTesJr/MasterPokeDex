@@ -1,5 +1,10 @@
 @import 'app/app.scss';
 
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
 div.logo-topbar{
 	height: 80px;
 	background-image: url("assets/img/pokemon_logo.png");

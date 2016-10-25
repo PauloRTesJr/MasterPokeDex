@@ -45,54 +45,59 @@
                                         <div class="info-label poke-types" ng-class="type.type.name" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
                                             {{type.type.name}}
                                             <div id="{{type.type.name}}" ng-show="hoverEdit" class="popover" ng-style="modalWidth">
-                                                <ul>
-                                                    <span class="list-title">Half damage from:</span>
-                                                    <li 
-                                                        ng-repeat="elem in type.infos.damage_relations.half_damage_from" 
-                                                        ng-class="elem.name">
-                                                        {{elem.name}}
-                                                    </li>
-                                                </ul>
-                                                <ul>
-                                                    <span class="list-title">Double damage from:</span>
-                                                    <li 
-                                                        ng-repeat="elem in type.infos.damage_relations.double_damage_from"
-                                                        ng-class="elem.name">
-                                                        {{elem.name}}
-                                                    </li>
-                                                </ul>
-                                                <ul>
-                                                    <span class="list-title">Half damage to:</span>
-                                                    <li 
-                                                        ng-repeat="elem in type.infos.damage_relations.half_damage_to"
-                                                        ng-class="elem.name">
-                                                        {{elem.name}}
-                                                    </li>
-                                                </ul>
-                                                <ul>
-                                                    <span class="list-title">Double damage to:</span>
-                                                    <li 
-                                                        ng-repeat="elem in type.infos.damage_relations.double_damage_to"
-                                                        ng-class="elem.name">
-                                                        {{elem.name}}
-                                                    </li>
-                                                </ul>
-                                                <ul>
-                                                    <span class="list-title">No damage from:</span>
-                                                    <li 
-                                                        ng-repeat="elem in type.infos.damage_relations.no_damage_from"
-                                                        ng-class="elem.name">
-                                                        {{elem.name}}
-                                                    </li>
-                                                </ul>
-                                                <ul>
-                                                    <span class="list-title">No damage to:</span>
-                                                    <li 
-                                                        ng-repeat="elem in type.infos.damage_relations.no_damage_to"
-                                                        ng-class="elem.name">
-                                                        {{elem.name}}
-                                                    </li>
-                                                </ul>
+                                                <div layout="row" layout-sm="column" layout-align="center center"  ng-show="loading_types">
+                                                    <md-progress-circular md-diameter="60" md-mode="indeterminate"></md-progress-circular>
+                                                </div>
+                                                <div ng-hide="loading_types">
+                                                    <ul>
+                                                        <span class="list-title">Half damage from:</span>
+                                                        <li 
+                                                            ng-repeat="elem in type.infos.damage_relations.half_damage_from" 
+                                                            ng-class="elem.name">
+                                                            {{elem.name}}
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <span class="list-title">Double damage from:</span>
+                                                        <li 
+                                                            ng-repeat="elem in type.infos.damage_relations.double_damage_from"
+                                                            ng-class="elem.name">
+                                                            {{elem.name}}
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <span class="list-title">Half damage to:</span>
+                                                        <li 
+                                                            ng-repeat="elem in type.infos.damage_relations.half_damage_to"
+                                                            ng-class="elem.name">
+                                                            {{elem.name}}
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <span class="list-title">Double damage to:</span>
+                                                        <li 
+                                                            ng-repeat="elem in type.infos.damage_relations.double_damage_to"
+                                                            ng-class="elem.name">
+                                                            {{elem.name}}
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <span class="list-title">No damage from:</span>
+                                                        <li 
+                                                            ng-repeat="elem in type.infos.damage_relations.no_damage_from"
+                                                            ng-class="elem.name">
+                                                            {{elem.name}}
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <span class="list-title">No damage to:</span>
+                                                        <li 
+                                                            ng-repeat="elem in type.infos.damage_relations.no_damage_to"
+                                                            ng-class="elem.name">
+                                                            {{elem.name}}
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -129,7 +134,35 @@
                                 <h2 class="section-title">Base Stats</h2>
                                 <div layout="row" layout-wrap class="infos-modal">
                                     <div flex-gt-sm="30" flex-sm="50" ng-repeat="stat in pokemon.stats">
-                                        <span class="info-label bg-red">{{stat.stat.name}}</span> {{ stat.base_stat }}
+                                        <div class="info-label bg-red">{{stat.stat.name}}</div> {{ stat.base_stat }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div layout="row" layout-sm="column" layout-align="center center"  ng-show="loading_details">
+                                <md-progress-circular md-diameter="60" md-mode="indeterminate"></md-progress-circular>
+                            </div>
+                            <div ng-hide="loading_details">
+                                <div class="section-container">
+                                    <h2 class="section-title">Egg groups</h2>
+                                    <div layout="row" layout-align="space-around center" class="infos-modal">
+
+                                        <div flex ng-repeat="egg in pokemon.details.egg_groups" class="egg-row">
+                                            <span class="info-label bg-green"><md-icon md-svg-icon="/assets/icons-pokemon/egg.svg"></md-icon></span> {{ egg.name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section-container">
+                                    <h2 class="section-title">Flavor texts</h2>
+                                    <div layout="column" class="infos-modal">
+
+                                        <div flex ng-repeat="flavor_text in pokemon.details.flavor_text_entries" class="flavortext-row" ng-if="flavor_text.language.name == 'en'">
+                                            <div class="flavortext-version">
+                                                {{flavor_text.version.name}}
+                                            </div>
+                                            <div class="flavortext-text">
+                                                {{flavor_text.flavor_text}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

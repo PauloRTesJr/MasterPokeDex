@@ -12,8 +12,12 @@ angular.module('apiApp')
         });
         console.log($scope.pokemons);
 
+        ///////////////////////////////
+        //DETAIL EACH POKEMON MODAL
+        ///////////////////////////////
         $scope.showPokemon = function(ev, pokemon) {
             $scope.querying = true;
+            $scope.loading_types = true;
             $mdDialog.show({
                 contentElement: '#myStaticDialog',
                 targetEvent: ev,
@@ -25,14 +29,29 @@ angular.module('apiApp')
                 url: pokemon.url
             }).then(function successCallback(response) {
                 $scope.pokemon = response.data;
+                ///////////////////////////////
+                //GET TYPES INFO
+                ///////////////////////////////
                 angular.forEach($scope.pokemon.types, function(value, key) {
                     $http({
                         method: 'GET',
                         url: value.type.url
                     }).then(function successCallback(response) {
                         value.infos = response.data;
+                        $scope.loading_types = false;
                     });
                 });
+                ///////////////////////////////
+                //GET SPECIES INFO
+                ///////////////////////////////
+                $http({
+                    method: 'GET',
+                    url: $scope.pokemon.species.url
+                }).then(function successCallback(response) {
+                    $scope.pokemon.details = response.data;
+                    $scope.loading_details = false;
+                });
+                $scope.loading_details = true;
                 $scope.querying = false;
             }, function errorCallback(response) {
                 alert('Falha ao carregar o conteúdo!');

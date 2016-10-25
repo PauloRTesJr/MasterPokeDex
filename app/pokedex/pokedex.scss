@@ -89,6 +89,7 @@
         margin: auto;
         .grid-tile {
             background-color: rgba($purple, 0.9);
+            cursor: pointer;
             h3 {
                 text-transform: uppercase;
                 font-weight: bold;
@@ -142,9 +143,33 @@
         	margin: 20px;
 		    border: 1px solid $purple;
 		    border-radius: 10px;
+		    box-shadow: 10px 10px 5px #888888;
         	.section-title{
         		font-size: 20px;
-    			margin: 5px;	
+    			padding: 5px 20px;
+			    margin: 0px;
+			    border-top-left-radius: 6px;
+			    border-top-right-radius: 6px;
+			    background-color: goldenrod;
+			    color: #fff;
+        	}
+        	.egg-row{
+        		text-transform: uppercase;
+        	}
+        	.flavortext-row{
+        		text-align: left;
+        		margin: 10px 0px;
+        		.flavortext-version{
+        			font-weight: bold;
+        			text-transform: uppercase;
+        			color: $purple;
+        			border-bottom: 3px solid $purple;
+    				margin-bottom: 5px;
+        		}
+        		.flavortext-text{
+        			font-style: italic;
+        			font-size: 15px;
+        		}
         	}
         }
         .infos-modal {
